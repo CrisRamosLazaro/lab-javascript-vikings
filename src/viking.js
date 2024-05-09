@@ -77,9 +77,17 @@ class War {
     }
 
     vikingAttack() {
+        const randomViking = this.vikingArmy[Math.floor(Math.random() * this.vikingArmy.length)]
+        const randomSaxon = this.saxonArmy[Math.floor(Math.random() * this.saxonArmy.length)]
 
+        const saxonLife = randomSaxon.receiveDamage(randomViking.strength)
 
+        if (randomSaxon.health <= 0) {
 
+            this.saxonArmy.splice(this.saxonArmy.indexOf(randomSaxon), 1)
+        }
+
+        return saxonLife;
 
     }
 
